@@ -1,4 +1,4 @@
-# Eisvogel
+# eisvogel
 
 ## Setup
 For more information, look at Installation notes from the original repo. I installed into Windows Subsystem for Linux (WSL) Ubuntu 20.04 LTS.
