@@ -1,5 +1,5 @@
 # eisvogel
-A Markdown -> LateX -> PDF workflow for writing my homework and notes for graduate school. 
+A Markdown -> LateX -> PDF workflow for writing my homework and notes. 
 
 ![Looks like](examples/basic-example/preview.png)
 
