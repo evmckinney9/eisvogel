@@ -1,7 +1,11 @@
 # eisvogel
 
 ## Setup
-For more information, look at Installation notes from the original repo. I installed into Windows Subsystem for Linux (WSL) Ubuntu 20.04, 22.04.1 LTS.
+For more information, look at Installation notes from the original repo. 
+
+Working using Windows version of pandoc 2.19.2 and MikTex 22/12
+
+I have not yet successfully installed into Windows Subsystem for Linux (WSL) Ubuntu 20.04, 22.04.1 LTS. The following our my steps to reproduce my Ubuntu Installation issues.
 
 #### First, install LaTeX (if not already) and verify version:
 
