@@ -1,7 +1,7 @@
 # eisvogel
 A Markdown -> LateX -> PDF workflow for writing my homework and notes for graduate school. 
 
-![Looks like](examples/basic-example/document.png)
+![Looks like](examples/basic-example/preview.png)
 
 ## Setup
 For more information, look at Installation notes from the original repo. 
