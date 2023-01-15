@@ -1,7 +1,7 @@
 ---
 title: "Example PDF"
-author: [Author]
-date: "2017-02-20"
+author: "Evan McKinney"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 subject: "Markdown"
 keywords: [Markdown, Example]
 lang: "en"
