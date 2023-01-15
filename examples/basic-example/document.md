@@ -1,57 +1,35 @@
 ---
-title: "Example PDF"
+title: "HELLO WORLD"
 author: "Evan McKinney"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+date: "Today"
 subject: "Markdown"
 keywords: [Markdown, Example]
 lang: "en"
 ...
 
-# Vinaque sanguine metuenti cuiquam Alcyone fixus
+# 1.
+Find the eigenvalues, eigenvectors, and diagonal representation of the Pauli matrices. Solve the first by hand, you may do the other 2 with (commented) computer calcs:
 
-## Aesculeae domus vincemur et Veneris adsuetus lapsum
+$$\hat{X} = \hat{\sigma_1} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}, \hat{Y} = \hat{\sigma_2} = \begin{bmatrix} 0 & -1 \\ i & 0 \end{bmatrix}, \hat{Z} = \hat{\sigma_3} = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$$
 
-Lorem markdownum Letoia, et alios: figurae flectentem annis aliquid Peneosque ab
-esse, obstat gravitate. Obscura atque coniuge, per de coniunx, sibi **medias
-commentaque virgine** anima tamen comitemque petis, sed. In Amphion vestros
-hamos ire arceor mandere spicula, in licet aliquando.
+```python
+### python code that finds eigenvalues and eigenvectors of a Matrix
+import numpy as np
+from numpy import linalg as LA
 
-```java
-public class Example implements LoremIpsum {
-	public static void main(String[] args) {
-		if(args.length < 2) {
-			System.out.println("Lorem ipsum dolor sit amet");
-		}
-	} // Obscura atque coniuge, per de coniunx
-}
+def eigen(matrix):
+	eigenvalues, eigenvectors = LA.eig(matrix)
+	return eigenvalues, eigenvectors
 ```
 
-Porrigitur et Pallas nuper longusque cratere habuisse sepulcro pectore fertur.
-Laudat ille auditi; vertitur iura tum nepotis causa; motus. Diva virtus! Acrota
-destruitis vos iubet quo et classis excessere Scyrumve spiro subitusque mente
-Pirithoi abstulit, lapides.
+SOLUTION GOES HERE
 
-## Lydia caelo recenti haerebat lacerum ratae at
+# 2. Determine if the matrices given below are unitary and Hermitian.
 
-Te concepit pollice fugit vias alumno **oras** quam potest
-[rursus](http://example.com#rursus) optat. Non evadere orbem equorum, spatiis,
-vel pede inter si.
+SOLUTION GOES HERE
 
-1. De neque iura aquis
-2. Frangitur gaudia mihi eo umor terrae quos
-3. Recens diffudit ille tantum
-
-\begin{equation}\label{eq:neighbor-propability}
-    p_{ij}(t) = \frac{\ell_j(t) - \ell_i(t)}{\sum_{k \in N_i(t)}^{} \ell_k(t) - \ell_i(t)}
-\end{equation}
-
-Tamen condeturque saxa Pallorque num et ferarum promittis inveni lilia iuvencae
-adessent arbor. Florente perque at condeturque saxa et ferarum promittis tendebat. Armos nisi obortas refugit me.
-
-> Et nepotes poterat, se qui. Euntem ego pater desuetaque aethera Maeandri, et
-[Dardanio geminaque](http://example.com#Dardanio_geminaque) cernit. Lassaque poenas
-nec, manifesta $\pi r^2$ mirantia captivarum prohibebant scelerato gradus unusque
-dura.
-
-- Permulcens flebile simul
-- Iura tum nepotis causa motus diva virtus Acrota. Tamen condeturque saxa Pallorque num et ferarum promittis inveni lilia iuvencae adessent arbor. Florente perque at ire arcum.
+```python
+### python code that checks if a Matrix is Hermitean
+def is_hermitean(matrix):
+	return matrix == matrix.H
+```
