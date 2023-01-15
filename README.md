@@ -3,9 +3,38 @@
 ## Setup
 For more information, look at Installation notes from the original repo. I installed into Windows Subsystem for Linux (WSL) Ubuntu 20.04 LTS.
 
-First, install LaTeX (if not already) and verify version:
+#### First, install LaTeX (if not already) and verify version:
+
+Start with TeX Live (https://tug.org/texlive/quickinstall.html). I am using the basic scheme because we will add the specific packages we want to use manually.
 ```bash
-sudo apt-get install texlive-latex-extra
+cd /tmp
+wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+zcat install-tl-unx.tar.gz | tar xf -
+cd install-tl-*
+sudo perl ./install-tl --no-interaction --scheme=minimal
+echo 'export PATH="/usr/local/texlive/2022/bin/x86_64-linux:$PATH"' >> ~/.bashrc
+```
+
+#### XXX: I am not sure exactly why still but I had a really hard time debugging why the `tlmgr` command is not visible to superuser.
+I spent time making sure I was setting PATH variable everywhere correctly. The work around is to use full path to tlmgr when in sudo.
+```bash
+$ tlmgr --version
+tlmgr revision 63068 (2022-04-18 07:58:07 +0200)
+tlmgr using installation: /usr/local/texlive/2022
+TeX Live (https://tug.org/texlive) version 2022
+$ sudo tlmgr --version
+sudo: tlmgr: command not found
+$ sudo /usr/local/texlive/2022/bin/x86_64-linux/tlmgr --version
+tlmgr revision 63068 (2022-04-18 07:58:07 +0200)
+tlmgr using installation: /usr/local/texlive/2022
+TeX Live (https://tug.org/texlive) version 2022
+```
+I tried modifiying `/etc/environment`, `~/.bashrc`, and `~/.profile` but texlive was never recognized by e.g. `sudo printenv | grep texlive`
+
+#### Next, use tlmgr (https://www.tug.org/texlive/tlmgr.html) to update packages.
+```bash
+tlmgr init-usertree
+tlmgr update --self
 tlmgr install adjustbox babel-german background bidi collectbox csquotes everypage filehook footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights needspace pagecolor sourcecodepro sourcesanspro titling ucharcat ulem unicode-math upquote xecjk xurl zref
 pdflatex --version
 ```
@@ -21,7 +50,7 @@ Printing the version will give you the user data directory, for example:
 
 `User data directory: /home/evm9/.local/share/pandoc`
 
-Second, move the Eisvogel template to the pandoc templates directory:
+#### Second, move the Eisvogel template to the pandoc templates directory:
 ```bash
 cd /home/evm9/.local/share
 mkdir -p pandoc/templates
