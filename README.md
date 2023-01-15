@@ -1,7 +1,7 @@
 # eisvogel
 
 ## Setup
-For more information, look at Installation notes from the original repo. I installed into Windows Subsystem for Linux (WSL) Ubuntu 20.04 LTS.
+For more information, look at Installation notes from the original repo. I installed into Windows Subsystem for Linux (WSL) Ubuntu 20.04, 22.04.1 LTS.
 
 #### First, install LaTeX (if not already) and verify version:
 
