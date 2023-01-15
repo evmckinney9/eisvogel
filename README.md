@@ -11,8 +11,9 @@ cd /tmp
 wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 zcat install-tl-unx.tar.gz | tar xf -
 cd install-tl-*
-sudo perl ./install-tl --no-interaction --scheme=minimal
+sudo perl ./install-tl --no-interaction --scheme=small
 echo 'export PATH="/usr/local/texlive/2022/bin/x86_64-linux:$PATH"' >> ~/.bashrc
+cd ~/eisvogel/
 ```
 
 #### XXX: I am not sure exactly why still but I had a really hard time debugging why the `tlmgr` command is not visible to superuser.
@@ -32,11 +33,12 @@ TeX Live (https://tug.org/texlive) version 2022
 I tried modifiying `/etc/environment`, `~/.bashrc`, and `~/.profile` but texlive was never recognized by e.g. `sudo printenv | grep texlive`
 
 #### Next, use tlmgr (https://www.tug.org/texlive/tlmgr.html) to update packages.
+Some of the commands being installed manually here are probably redundant because I took the list from a slightly different guide.
 ```bash
 tlmgr init-usertree
 tlmgr update --self
 tlmgr update --all
-tlmgr install adjustbox babel-german background bidi collectbox csquotes everypage filehook footmisc footnotebackref framed fvextra letltxmacro ly1 mdframed mweights needspace pagecolor sourcecodepro sourcesanspro titling ucharcat ulem unicode-math upquote xecjk xurl zref
+tlmgr install adjustbox babel-german background bidi collectbox csquotes everypage filehook footmisc footnotebackref framed fvextra koma-script letltxmacro ly1 mdframed mweights needspace pagecolor sourcecodepro sourcesanspro titling ucharcat ulem unicode-math upquote xecjk xurl zref
 pdflatex --version
 ```
 
@@ -44,6 +46,7 @@ Then, install pandoc and verify version:
 ```bash
 wget https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb
 sudo dpkg -i pandoc-2.19.2-1-amd64.deb
+rm pandoc-2.19.2-1-amd64.deb
 pandoc --version
 ```
 
@@ -59,7 +62,19 @@ cd pandoc/templates
 wget https://github.com/Wandmalfarbe/pandoc-latex-template/releases/download/v2.1.0/Eisvogel-2.1.0.tar.gz
 tar -xzf Eisvogel-2.1.0.tar.gz
 rm -r !("eisvogel.latex")
+cd ~/eisvogel/
 ```
+
+#### Third, do some inevitable debugging/ add more packages as needed.
+Helpful command:
+`tlmgr search --global --file <missing.file>`
+
+For any other [Common Errors / Issues](https://github.com/Wandmalfarbe/pandoc-latex-template#:~:text=Common%20Errors%20/%20Issues)
+
+I opened this issue after getting stuck while using `scheme=small`, the solution might be to use `full` but I have not verified this yet:
+https://github.com/Wandmalfarbe/pandoc-latex-template/issues/314
+
+
 ___
 <!-- 
 Spring '23 HW Assignments
