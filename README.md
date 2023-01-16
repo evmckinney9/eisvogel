@@ -1,7 +1,15 @@
 # eisvogel
 A Markdown -> LateX -> PDF workflow for writing my homework and notes. 
 
-![Looks like](examples/basic-example/preview.png)
+![](preview.png)  
+
+## Usage
+
+In vscode, use these extensions
+vscode-pandoc, this lets us call the build command from a keyboard shortcut. 
+Custom settings:
+
+vscode-markdown-paste-image, this lets us paste images from the clipboard into markdown files.
 
 ## Setup
 For more information, look at Installation notes from the original repo. 
